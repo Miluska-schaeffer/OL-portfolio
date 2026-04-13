@@ -94,8 +94,8 @@ splitIntoLetters(skillsH2)
 skillsH2.classList.add('anim-letters')
 textObserver.observe(skillsH2)
 
-// H3s, ps, and uls — fade in on scroll
-document.querySelectorAll('h3, p, ul').forEach(el => {
+// H3s and ps — fade in on scroll
+document.querySelectorAll('h3, p').forEach(el => {
   animateText(el, 'lead')
   textObserver.observe(el)
 })
