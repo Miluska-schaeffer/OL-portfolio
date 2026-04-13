@@ -278,11 +278,13 @@ img {
 
 /* Card positioning in grid */
 .card-left {
-  animation: softFadeIn 3s ease-out forwards;
+  animation: softFadeIn 3.5s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
 .card-right {
-  animation: softFadeIn 3s ease-out forwards;
+  animation: softFadeIn 3.5s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
 /* Contact Card - Below left card */
