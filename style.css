@@ -523,7 +523,7 @@ img {
 
 .portfolio-card__list li {
   color: var(--color-text);
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   display: flex;
   align-items: flex-start;
   gap: 10px;
