@@ -781,3 +781,12 @@ button:focus-visible,
     transform: translateY(0);
   }
 }
+
+/* Fallback: Ensure lists are visible if animations are disabled */
+@media (prefers-reduced-motion: reduce) {
+  .anim-lead {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+  }
+}
