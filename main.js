@@ -141,22 +141,23 @@ if (emailLink) {
     try {
       await navigator.clipboard.writeText(email)
 
-      // Show "Copied!" feedback
-      const originalTooltip = emailLink.getAttribute('data-tooltip')
+      // Show "Copied!" feedback (works on both desktop and mobile)
       emailLink.setAttribute('data-tooltip', 'Copied!')
-      emailLink.classList.add('copied-state')
+      emailLink.classList.add('tooltip-visible')
 
       // Revert tooltip after 2 seconds
       setTimeout(() => {
-        emailLink.setAttribute('data-tooltip', originalTooltip)
-        emailLink.classList.remove('copied-state')
+        emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
+        emailLink.classList.remove('tooltip-visible')
       }, 2000)
     } catch (err) {
       console.error('Failed to copy email to clipboard:', err)
       // Show error state
       emailLink.setAttribute('data-tooltip', 'Copy failed')
+      emailLink.classList.add('tooltip-visible')
       setTimeout(() => {
         emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
+        emailLink.classList.remove('tooltip-visible')
       }, 2000)
     }
   })
