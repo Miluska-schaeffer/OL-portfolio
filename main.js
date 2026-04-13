@@ -28,8 +28,8 @@ if (backToTopLink) {
 // Text Animations
 // ================================
 
-const LETTER_STAGGER = 40   // ms between each letter
-const LETTER_DURATION = 700 // ms for each letter's transition
+const LETTER_STAGGER = 65   // ms between each letter
+const LETTER_DURATION = 1000 // ms for each letter's transition
 
 function splitIntoLetters(element, baseDelay = 0) {
   const original = element.innerText.trim()
