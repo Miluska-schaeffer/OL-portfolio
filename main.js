@@ -100,11 +100,17 @@ document.querySelectorAll('h3, p').forEach(el => {
   textObserver.observe(el)
 })
 
-// Re-split letter elements on resize
+// Re-split letter elements on resize — only if width changes (ignores mobile address bar height change)
 let resizeDebounce
+let lastWidth = window.innerWidth
+
 window.addEventListener('resize', () => {
   clearTimeout(resizeDebounce)
   resizeDebounce = setTimeout(() => {
+    const currentWidth = window.innerWidth
+    if (currentWidth === lastWidth) return
+    lastWidth = currentWidth
+
     document.querySelectorAll('.anim-letters').forEach(el => {
       const wasVisible = el.classList.contains('is-visible')
       const baseDelay = parseInt(el.dataset.baseDelay || 0)
