@@ -78,7 +78,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/assets/backdrop3.png');
+  background-image: url('/assets/backdrop4.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -191,7 +191,7 @@ img {
 /* Desktop: Two-column layout */
 @media (min-width: 1200px) {
   .layout-wrapper {
-    grid-template-columns: minmax(450px, 1fr) minmax(500px, 2fr);
+    grid-template-columns: minmax(450px, 1fr) minmax(480px, 2fr);
     gap: var(--space-md);
   }
 
@@ -327,7 +327,7 @@ img {
 .about__role {
   color: var(--color-text);
   font-weight: var(--fw-medium);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-sm);
 }
 
 .about__tagline {
@@ -335,7 +335,7 @@ img {
   font-size: var(--fs-body);
   font-weight: var(--fw-medium);
   line-height: 1.8;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .about__bio {
