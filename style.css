@@ -588,8 +588,10 @@ img {
   background-color: #ECECFF;
 }
 
-.contact__email:hover::before {
-  opacity: 1;
+@media (hover: hover) {
+  .contact__email:hover::before {
+    opacity: 1;
+  }
 }
 
 .social-links {
@@ -642,8 +644,10 @@ img {
   z-index: 1000;
 }
 
-.social-link:hover::before {
-  opacity: 1;
+@media (hover: hover) {
+  .social-link:hover::before {
+    opacity: 1;
+  }
 }
 
 /* ================================
