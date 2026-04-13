@@ -222,11 +222,11 @@ img {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    
   }
 }
 
@@ -278,12 +278,11 @@ img {
 
 /* Card positioning in grid */
 .card-left {
-  animation: softFadeIn 2.5s ease-out forwards;
+  animation: softFadeIn 3s ease-out forwards;
 }
 
 .card-right {
-  animation: softFadeIn 2.5s ease-out forwards;
-  animation-delay: 0.3s;
+  animation: softFadeIn 3s ease-out forwards;
 }
 
 /* Contact Card - Below left card */
@@ -344,6 +343,12 @@ img {
   line-height: 1.8;
   margin-bottom: var(--space-lg);
 }
+
+
+.action_call_text {
+  margin-bottom: 2px
+}
+  
 
 /* ================================
    Services Section
