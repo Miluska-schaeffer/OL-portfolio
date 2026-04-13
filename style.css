@@ -10,6 +10,9 @@
   --color-text: #2C2C2C;
   --color-white: #FFFFFF;
   --color-accent: #BBBBBB;
+  --color-link: #0E1AF5;
+  --color-link-hover: #0E1AE1;
+  --color-link-fill: #D9DAF6;
 
   /* Typography */
   --font-primary: 'Mona Sans', sans-serif;
@@ -127,14 +130,14 @@ p {
 }
 
 a {
-  color: inherit;
+  color: var(--color-link);
   text-decoration: none;
   transition: color var(--transition-base);
   cursor: pointer;
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--color-link-hover);
 }
 
 img {
@@ -506,17 +509,24 @@ img {
 .portfolio-card__list li {
   color: var(--color-text);
   font-size: var(--fs-small);
-  padding-left: var(--space-md);
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.portfolio-card__list li:before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--color-text);
-  font-weight: bold;
-  font-size: 1.2em;
+.portfolio-card__list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  background-color: var(--color-link);
+  mask-image: url('/assets/asterisk%201.svg');
+  -webkit-mask-image: url('/assets/asterisk%201.svg');
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
 }
 
 /* ================================
@@ -546,14 +556,40 @@ img {
   display: inline-block;
   font-size: var(--fs-h3);
   font-weight: var(--fw-medium);
-  color: var(--color-text);
-  transition: all var(--transition-base);
-  border-bottom: 2px solid transparent;
+  color: var(--color-link);
+  transition: color 0.2s ease, background 0.2s ease;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact__email::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 0.75rem;
+  white-space: nowrap;
+  background-color: rgba(44, 44, 44, 0.9);
+  color: var(--color-white);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--br-soft);
+  font-size: 0.75rem;
+  font-weight: var(--fw-medium);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
 }
 
 .contact__email:hover {
-  border-bottom-color: var(--color-accent);
-  color: var(--color-accent);
+  color: var(--color-link-hover);
+  background-color: #ECECFF;
+}
+
+.contact__email:hover::before {
+  opacity: 1;
 }
 
 .social-links {
@@ -569,18 +605,45 @@ img {
   justify-content: center;
   width: 50px;
   height: 50px;
-  border: 2px solid var(--color-text);
+  border: 2px solid var(--color-link);
   border-radius: 50%;
   font-weight: var(--fw-medium);
-  color: var(--color-text);
+  color: var(--color-link);
   transition: all var(--transition-base);
+  position: relative;
+  z-index: 1;
 }
 
 .social-link:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: var(--color-link-hover);
+  color: var(--color-link-hover);
   transform: translateY(-4px);
-  background-color: rgba(44, 44, 44, 0.04);
+  background-color: var(--color-link-fill);
+  z-index: 10;
+}
+
+.social-link::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 0.75rem;
+  white-space: nowrap;
+  background-color: rgba(44, 44, 44, 0.9);
+  color: var(--color-white);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--br-soft);
+  font-size: 0.75rem;
+  font-weight: var(--fw-medium);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.social-link:hover::before {
+  opacity: 1;
 }
 
 /* ================================
@@ -619,10 +682,10 @@ img {
    Focus Styles (Accessibility)
    ================================ */
 
-a:focus,
-button:focus,
-.btn:focus {
-  outline: 2px solid var(--color-accent);
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--color-link);
   outline-offset: 2px;
 }
 
@@ -638,7 +701,7 @@ button:focus,
 .back-to-top {
   display: inline-block;
   padding: 0;
-  color: var(--color-text);
+  color: var(--color-link);
   font-weight: var(--fw-medium);
   text-decoration: underline;
   transition: color var(--transition-base);
@@ -648,7 +711,7 @@ button:focus,
 }
 
 .back-to-top:hover {
-  color: var(--color-accent);
+  color: var(--color-link-hover);
 }
 
 /* ================================
@@ -678,4 +741,43 @@ button:focus,
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--gutter);
+}
+
+/* ================================
+   Text Animations
+   ================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Animation 1: Letter-by-letter reveal */
+  .letter-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+
+  .letter-inner {
+    display: inline-block;
+    transform: translateY(105%);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .anim-letters.is-visible .letter-inner {
+    transform: translateY(0);
+  }
+
+  /* Animation 2: Lead fade */
+  .anim-lead {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 0.15s;
+    will-change: transform, opacity;
+  }
+
+  .anim-lead.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
