@@ -256,9 +256,11 @@ img {
   animation-delay: 0.2s;
 }
 
-.card:hover {
-  background-color: rgba(255, 255, 255, 0.95);
-  transform: translateY(-4px);
+@media (hover: hover) {
+  .card:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-4px);
+  }
 }
 
 /* Card Sections within Left Column */
@@ -384,9 +386,11 @@ img {
   transition: all var(--transition-base);
 }
 
-.service-card:hover {
-  background-color: rgba(44, 44, 44, 0.08);
-  transform: translateX(4px);
+@media (hover: hover) {
+  .service-card:hover {
+    background-color: rgba(44, 44, 44, 0.08);
+    transform: translateX(4px);
+  }
 }
 
 .service-card h3 {
@@ -432,9 +436,11 @@ img {
   transition: all var(--transition-base);
 }
 
-.portfolio-card:hover {
-  background-color: rgba(44, 44, 44, 0.06);
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .portfolio-card:hover {
+    background-color: rgba(44, 44, 44, 0.06);
+    transform: translateY(-2px);
+  }
 }
 
 .portfolio-card img {
@@ -445,8 +451,10 @@ img {
   transition: transform var(--transition-base);
 }
 
-.portfolio-card:hover img {
-  transform: scale(1.02);
+@media (hover: hover) {
+  .portfolio-card:hover img {
+    transform: scale(1.02);
+  }
 }
 
 .portfolio-card__content {
@@ -583,9 +591,11 @@ img {
   z-index: 10;
 }
 
-.contact__email:hover {
-  color: var(--color-link-hover);
-  background-color: #ECECFF;
+@media (hover: hover) {
+  .contact__email:hover {
+    color: var(--color-link-hover);
+    background-color: #ECECFF;
+  }
 }
 
 @media (hover: hover) {
@@ -616,12 +626,14 @@ img {
   z-index: 1;
 }
 
-.social-link:hover {
-  border-color: var(--color-link-hover);
-  color: var(--color-link-hover);
-  transform: translateY(-4px);
-  background-color: var(--color-link-fill);
-  z-index: 10;
+@media (hover: hover) {
+  .social-link:hover {
+    border-color: var(--color-link-hover);
+    color: var(--color-link-hover);
+    transform: translateY(-4px);
+    background-color: var(--color-link-fill);
+    z-index: 10;
+  }
 }
 
 .social-link::before {
