@@ -135,8 +135,11 @@ if (emailLink) {
 
       // Revert tooltip after 2 seconds
       setTimeout(() => {
-        emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
         emailLink.classList.remove('tooltip-visible')
+        // Wait for fade-out transition (0.2s) before changing text
+        setTimeout(() => {
+          emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
+        }, 200)
       }, 2000)
     } catch (err) {
       console.error('Failed to copy email to clipboard:', err)
@@ -144,8 +147,11 @@ if (emailLink) {
       emailLink.setAttribute('data-tooltip', 'Copy failed')
       emailLink.classList.add('tooltip-visible')
       setTimeout(() => {
-        emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
         emailLink.classList.remove('tooltip-visible')
+        // Wait for fade-out transition (0.2s) before changing text
+        setTimeout(() => {
+          emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
+        }, 200)
       }, 2000)
     }
   })
