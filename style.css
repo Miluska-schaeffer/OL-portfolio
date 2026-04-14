@@ -8,7 +8,7 @@
   /* Colors */
   --color-bg: #F5F5F5;
   --color-text: #2C2C2C;
-  --color-white: #FFFFFF;
+  --color-white: #f6f6f6;
   --color-accent: #BBBBBB;
   --color-link: #0E1AF5;
   --color-link-hover: #0E1AE1;
@@ -426,8 +426,12 @@ img {
   justify-content: space-between;
   align-items: flex-start;
   gap: var(--space-lg);
-
 }
+
+.portfolio-intro {
+  padding-right: var(--space-xl);
+}
+
 
 .portfolio__grid {
   margin-top: var(--space-lg);
@@ -717,12 +721,18 @@ button:focus-visible,
 }
 
 /* ================================
+   closing section
+  ================================  */
+
+/* ================================
    Back to Top
    ================================ */
 
 .back-to-top-section {
   text-align: right;
-  margin-top: var(--space-md);
+  margin-top: var(--space-sm);
+  animation: softFadeIn 2.5s ease-out forwards;
+  animation-delay: 1s;
 }
 
 .back-to-top {

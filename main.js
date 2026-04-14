@@ -82,20 +82,8 @@ splitIntoLetters(h1El)
 h1El.classList.add('anim-letters')
 requestAnimationFrame(() => requestAnimationFrame(() => h1El.classList.add('is-visible')))
 
-// H2 "Work" — starts when H1's last letter begins animating
-const workH2 = document.querySelector('.portfolio-header h2')
-splitIntoLetters(workH2, h1LastLetterDelay)
-workH2.classList.add('anim-letters')
-requestAnimationFrame(() => requestAnimationFrame(() => workH2.classList.add('is-visible')))
-
-// H2 "Skills" — triggered by scroll (IntersectionObserver)
-const skillsH2 = document.querySelector('.skills_intro h2')
-splitIntoLetters(skillsH2)
-skillsH2.classList.add('anim-letters')
-textObserver.observe(skillsH2)
-
-// H3s and ps — fade in on scroll
-document.querySelectorAll('h3, p').forEach(el => {
+// H2s, H3s and ps — fade in on scroll
+document.querySelectorAll('h2, h3, p').forEach(el => {
   animateText(el, 'lead')
   textObserver.observe(el)
 })
