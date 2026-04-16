@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500&family=Strait&display=swap&font-display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500&family=Strait&family=Oswald:wght@400;600&family=Archivo:wght@400;500;600&display=swap&font-display=swap');
 
 /* ================================
    CSS Custom Properties (Design Tokens)
@@ -16,15 +16,18 @@
 
   /* Typography */
   --font-primary: 'Mona Sans', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Archivo', sans-serif;
   --fw-regular: 400;
   --fw-medium: 500;
+  --fw-semibold: 600;
 
   /* Font Sizes (responsive with clamp) */
   --fs-h1: clamp(2.5rem, 5vw, 4rem);
   --fs-h2: clamp(1.5rem, 3.5vw, 2rem);
   --fs-h3: clamp(1.1rem, 2.5vw, 1.5rem);
   --fs-body: clamp(0.95rem, 2vw, 1rem);
-  --fs-small: 0.875rem;
+  --fs-small: 0.775rem;
 
   /* Spacing (8px base unit) */
   --space-xs: 0.5rem;
@@ -111,22 +114,42 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semibold);
   font-size: var(--fs-h1);
   margin-bottom: var(--space-md);
 }
 
 h2 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semibold);
   font-size: var(--fs-h2);
   margin-bottom: var(--space-lg);
 }
 
 h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-regular);
   font-size: var(--fs-h3);
   margin-bottom: var(--space-sm);
 }
 
 p {
+  font-family: var(--font-body);
   margin-bottom: var(--space-md);
+}
+
+ul {
+  font-family: var(--font-body);
+}
+
+.about_location {
+  font-family: var(--font-body);
+}
+
+h3.service {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-regular);
 }
 
 a {
@@ -280,11 +303,15 @@ img {
 .card-left {
   animation: softFadeIn 3.5s ease-out forwards;
   animation-delay: 0.2s;
+  position: relative;
+  z-index: 10;
 }
 
 .card-right {
   animation: softFadeIn 3.5s ease-out forwards;
   animation-delay: 0.2s;
+  position: relative;
+  z-index: 1;
 }
 
 /* Contact Card - Below left card */
@@ -315,7 +342,7 @@ img {
   flex: 1;
 }
 
-.about__location {
+.about_location {
   font-size: var(--fs-small);
   color: var(--color-text);
   writing-mode: vertical-rl;
@@ -392,6 +419,12 @@ img {
   background-color: rgba(44, 44, 44, 0.04);
   transition: all var(--transition-base);
 }
+
+
+.service {
+  font-family:;
+}
+
 
 @media (hover: hover) {
   .service-card:hover {
@@ -594,12 +627,13 @@ img {
   color: var(--color-white);
   padding: 0.5rem 0.75rem;
   border-radius: var(--br-soft);
+  font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: var(--fw-medium);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
-  z-index: 10;
+  z-index: 1000;
 }
 
 @media (hover: hover) {
@@ -663,6 +697,7 @@ img {
   color: var(--color-white);
   padding: 0.5rem 0.75rem;
   border-radius: var(--br-soft);
+  font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: var(--fw-medium);
   opacity: 0;
@@ -729,6 +764,7 @@ button:focus-visible,
    ================================ */
 
 .back-to-top-section {
+
   text-align: right;
   margin-top: var(--space-sm);
   animation: softFadeIn 2.5s ease-out forwards;
@@ -736,6 +772,7 @@ button:focus-visible,
 }
 
 .back-to-top {
+  font-family: var(--font-body);
   display: inline-block;
   padding: 0;
   color: var(--color-link);
@@ -757,6 +794,7 @@ button:focus-visible,
 
 .footer {
   text-align: center;
+  font-family: var(--font-body);
   padding: 0 var(--gutter) var(--space-xl) var(--gutter);
   position: relative;
   z-index: 1;
