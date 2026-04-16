@@ -143,8 +143,8 @@ ul {
   font-family: var(--font-body);
 }
 
-.about_location {
-  font-family: var(--font-body);
+strong {
+  font-weight: var(--fw-semibold);
 }
 
 h3.service {
@@ -343,6 +343,7 @@ img {
 }
 
 .about_location {
+  font-family: var(--font-body);
   font-size: var(--fs-small);
   color: var(--color-text);
   writing-mode: vertical-rl;
