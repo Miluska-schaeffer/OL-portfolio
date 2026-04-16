@@ -6,8 +6,9 @@
 
 :root {
   /* Colors */
-  --color-bg: #F5F5F5;
+  --color-bg: #FFFFFF;
   --color-text: #2C2C2C;
+  --color-border: #2C2C2C;
   --color-white: #f6f6f6;
   --color-accent: #BBBBBB;
   --color-link: #0E1AF5;
@@ -362,7 +363,7 @@ img {
 .about__tagline {
   color: var(--color-text);
   font-size: var(--fs-body);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-regular);
   line-height: 1.8;
   margin-bottom: var(--space-md);
 }
@@ -416,6 +417,7 @@ img {
 
 .service-card {
   padding: var(--space-sm);
+  border: 1px solid #2C2C2C;
   border-radius: var(--br-soft);
   background-color: rgba(44, 44, 44, 0.04);
   transition: all var(--transition-base);
@@ -476,14 +478,14 @@ img {
 
 .portfolio-card {
   overflow: hidden;
+  border-color: var(--color-border);
   border-radius: var(--br-soft, 4px);
-  background-color: rgba(44, 44, 44, 0.04);
   transition: all var(--transition-base);
 }
 
 @media (hover: hover) {
   .portfolio-card:hover {
-    background-color: rgba(44, 44, 44, 0.06);
+    background-color: rgba(44, 44, 44, 0.04);    
     transform: translateY(-2px);
   }
 }
@@ -504,6 +506,7 @@ img {
 
 .portfolio-card__content {
   padding: var(--space-sm);
+  border: var(--color-border);
 }
 
 .portfolio-card__content > :last-child {
