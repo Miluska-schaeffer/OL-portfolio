@@ -235,15 +235,27 @@ img {
   }
 }
 
-/* Mobile: Adjust padding */
+/* Mobile: Full width with responsive padding */
 @media (max-width: 767px) {
   .layout-wrapper {
+    width: 100%;
     max-width: 100%;
-    padding: var(--space-lg) var(--space-sm);
+    padding: var(--space-lg) 3%;
     gap: var(--space-lg);
-    justify-items: center;
   }
+}
 
+/* Tablet: Full width with responsive padding */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .layout-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: var(--space-lg) 4%;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 767px) {
   .card-left,
   .card-right {
     width: 100%;
@@ -279,6 +291,7 @@ img {
   border-radius: var(--br-soft);
   padding: var(--space-md);
   height: auto;
+  overflow: hidden;
   transition: all var(--transition-base);
   animation: fadeInUp var(--transition-slow) ease-out forwards;
 }
@@ -351,6 +364,12 @@ img {
   align-items: flex-start;
   gap: var(--space-lg);
   margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 767px) {
+  .about__header {
+    gap: var(--space-sm);
+  }
 }
 
 .about__name {
@@ -461,8 +480,20 @@ img {
   gap: var(--space-lg);
 }
 
+@media (max-width: 767px) {
+  .portfolio-header {
+    gap: var(--space-sm);
+  }
+}
+
 .portfolio-intro {
   padding-right: var(--space-xl);
+}
+
+@media (max-width: 767px) {
+  .portfolio-intro {
+    padding-right: 0;
+  }
 }
 
 
@@ -773,7 +804,7 @@ img {
   }
 
   .card {
-    padding: var(--space-lg);
+    padding: var(--space-sm);
   }
 
   .contact-hero {
