@@ -475,7 +475,7 @@ img {
 
 @media (hover: hover) {
   .portfolio-card:hover {
-    background-color: rgba(44, 44, 44, 0.04);    
+    background-color: rgba(91, 255, 157, 0.03);    
     transform: translateY(-2px);
   }
 }
@@ -633,41 +633,21 @@ img {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 @media (max-width: 767px) {
-  .contact__email {
-    position: relative;
-    z-index: 100;
-  }
-
-  .contact__email::before {
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 0;
-    margin-top: 0.5rem;
-    z-index: 9999;
-  }
-
   .contact__email:active {
     color: var(--color-link-hover);
     background-color: #ECECFF;
   }
 
-  .contact__email:active::before {
-    opacity: 1;
-  }
-
   .social-links {
     position: relative;
-    z-index: 1;
   }
 
   .social-link {
     position: relative;
-    z-index: 0;
   }
 }
 
@@ -684,7 +664,24 @@ img {
   }
 }
 
-.contact__email.tooltip-visible::before {
+/* Body-level tooltip for click feedback — escapes all card stacking contexts */
+.email-tooltip {
+  position: fixed;
+  background-color: rgba(44, 44, 44, 0.9);
+  color: var(--color-white);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--br-soft);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.email-tooltip.visible {
   opacity: 1;
 }
 

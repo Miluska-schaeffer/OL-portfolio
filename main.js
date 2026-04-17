@@ -119,40 +119,53 @@ window.addEventListener('resize', () => {
 
 const emailLink = document.querySelector('.contact__email')
 if (emailLink) {
-  // Set initial tooltip text
+  // Set initial tooltip text for desktop hover (::before CSS tooltip)
   emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
+
+  // Body-level tooltip — appended to <body> to escape all card stacking contexts
+  const emailTooltip = document.createElement('div')
+  emailTooltip.className = 'email-tooltip'
+  document.body.appendChild(emailTooltip)
+
+  let tooltipTimeout
+
+  function showEmailTooltip(text) {
+    const rect = emailLink.getBoundingClientRect()
+    emailTooltip.textContent = text
+
+    if (window.innerWidth < 768) {
+      // Mobile: center below the email element
+      emailTooltip.style.top = (rect.bottom + 8) + 'px'
+      emailTooltip.style.left = (rect.left + rect.width / 2) + 'px'
+      emailTooltip.style.transform = 'translateX(-50%)'
+    } else {
+      // Desktop: right side of the email, vertically centered
+      emailTooltip.style.top = (rect.top + rect.height / 2) + 'px'
+      emailTooltip.style.left = (rect.right + 12) + 'px'
+      emailTooltip.style.transform = 'translateY(-50%)'
+    }
+
+    emailTooltip.classList.add('visible')
+  }
+
+  function hideEmailTooltip() {
+    emailTooltip.classList.remove('visible')
+  }
 
   emailLink.addEventListener('click', async (e) => {
     e.preventDefault()
     const email = 'olympios.element@gmail.com'
 
+    clearTimeout(tooltipTimeout)
+
     try {
       await navigator.clipboard.writeText(email)
-
-      // Show "Copied!" feedback (works on both desktop and mobile)
-      emailLink.setAttribute('data-tooltip', 'Copied!')
-      emailLink.classList.add('tooltip-visible')
-
-      // Revert tooltip after 2 seconds
-      setTimeout(() => {
-        emailLink.classList.remove('tooltip-visible')
-        // Wait for fade-out transition (0.2s) before changing text
-        setTimeout(() => {
-          emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
-        }, 200)
-      }, 2000)
+      showEmailTooltip('Copied!')
     } catch (err) {
       console.error('Failed to copy email to clipboard:', err)
-      // Show error state
-      emailLink.setAttribute('data-tooltip', 'Copy failed')
-      emailLink.classList.add('tooltip-visible')
-      setTimeout(() => {
-        emailLink.classList.remove('tooltip-visible')
-        // Wait for fade-out transition (0.2s) before changing text
-        setTimeout(() => {
-          emailLink.setAttribute('data-tooltip', 'Copy to clipboard')
-        }, 200)
-      }, 2000)
+      showEmailTooltip('Copy failed')
     }
+
+    tooltipTimeout = setTimeout(hideEmailTooltip, 2000)
   })
 }
