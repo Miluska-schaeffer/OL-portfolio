@@ -241,7 +241,7 @@ img {
     width: 100%;
     max-width: 100%;
     padding: var(--space-lg) 3%;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 }
 
@@ -251,7 +251,7 @@ img {
     width: 100%;
     max-width: 100%;
     padding: var(--space-lg) 4%;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 }
 
@@ -291,7 +291,6 @@ img {
   border-radius: var(--br-soft);
   padding: var(--space-md);
   height: auto;
-  overflow: hidden;
   transition: all var(--transition-base);
   animation: fadeInUp var(--transition-slow) ease-out forwards;
 }
@@ -805,6 +804,7 @@ img {
 
   .card {
     padding: var(--space-sm);
+    overflow: hidden;
   }
 
   .contact-hero {
