@@ -643,6 +643,16 @@ img {
     transform: translateX(-50%);
     margin-left: 0;
     margin-top: 0.5rem;
+    z-index: 1001;
+  }
+
+  .contact__email:active {
+    color: var(--color-link-hover);
+    background-color: #ECECFF;
+  }
+
+  .contact__email:active::before {
+    opacity: 1;
   }
 }
 
