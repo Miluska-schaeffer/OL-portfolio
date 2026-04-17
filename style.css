@@ -234,6 +234,7 @@ img {
 /* Mobile: Adjust padding */
 @media (max-width: 767px) {
   .layout-wrapper {
+    max-width: 100%;
     padding: var(--space-lg) var(--space-sm);
     gap: var(--space-lg);
   }
