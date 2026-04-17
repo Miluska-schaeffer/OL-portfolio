@@ -224,6 +224,8 @@ img {
   .card-left {
     grid-column: 1;
     grid-row: 1;
+    position: sticky;
+    top: 0;
   }
 
   .card-right {
@@ -313,8 +315,13 @@ img {
 .card-left {
   animation: softFadeIn 3.5s ease-out forwards;
   animation-delay: 0.2s;
-  position: relative;
   z-index: 10;
+}
+
+@media (max-width: 1199px) {
+  .card-left {
+    position: relative;
+  }
 }
 
 .card-right {
