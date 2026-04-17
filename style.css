@@ -398,7 +398,7 @@ img {
 
 
 .skills__list {
-  margin-top: var(--space-md);
+  margin-top: var(--space-sm);
   padding-bottom: var(--space-sm);
   display: flex;
   flex-wrap: wrap;
