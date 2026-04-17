@@ -637,6 +637,11 @@ img {
 }
 
 @media (max-width: 767px) {
+  .contact__email {
+    position: relative;
+    z-index: 100;
+  }
+
   .contact__email::before {
     top: 100%;
     left: 50%;
